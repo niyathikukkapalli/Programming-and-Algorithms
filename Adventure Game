@@ -1,0 +1,290 @@
+import java.util.Scanner;
+
+// Niyathi's RPG Themed Adventure Game: Final Fantasy inspired 
+
+class Main {
+
+    // This variable represents where you are in the world
+    // or it can be "end" when you want to quit.
+    static String place = "start";
+
+    public static void main(String[] args) {
+
+        while (!place.equals("end")) {
+            if (place.equals("start")) {
+                Dungeon(); //place 1
+            }
+            if (place.equals("altar")) {
+                Altar(); //place 2
+            }
+            if (place.equals("skip")) {
+                Skip();
+            }
+            if (place.equals("village")) {
+                Village(); //place 3
+            }
+            if (place.equals("battle")) {
+                Battle();
+            }
+            if (place.equals("swamp")) //place 4
+            {
+                Swamp();
+            }
+            if (place.equals("gallow")) //place 4
+            {
+                Gallow();
+            }
+            if (place.equals("forest")) //place 4 
+            {
+                Forest();
+            }
+            if (place.equals("alternate")) {
+                Alt();
+            }
+            if (place.equals("end")) {
+                End();
+            }
+        }
+
+    }
+
+    public static void Dungeon() {
+
+        System.out.println("Welcome to the Lair of the Secret Oracle!");
+        System.out.println("Enter your name here!");
+        String choice = Q();
+        System.out.println(choice + " is a brave adventurer...");
+        System.out.println("");
+        System.out
+                .println("You are currently in your guild hall meeting with your fellow bandits. Your guild is Ixtal.");
+        System.out.println("");
+        System.out.println(
+                "The guild leader, Diablo, says you need to go out and train! A mission will do just the trick. Which one will you choose?");
+        System.out.println("");
+        System.out.println(
+                "1. Head to the Altar of Ulios and defeat the kraken that lives in the altar and haunts the villagers");
+        System.out.println("");
+        System.out.println("2. Try to skip out on the mission...");
+        int adv = K();
+
+        if (adv == 1) {
+            place = "altar";
+        }
+        if (adv == 2) {
+            place = "skip";
+        }
+
+    }
+
+    public static void Skip() {
+        System.out.println(
+                "Your guild leader caught you slacking off, eating potato chips while watching TV. Safe to say he was furious and shoved you out the door to do the mission.");
+         System.out.println("");
+        System.out.println("No choice but to go to the altar...");
+        Altar();
+    }
+
+    public static void Altar() {
+
+        System.out.println(
+                "You have chosen Altar of Ulios. The Villagers have been starved for days because of the monster that has inhabited it... You start your journey immediately! ");
+         System.out.println("");
+        System.out.println(
+                "On the way there, you encounter a orb that is eminating dark energy... Do you pick it up? 1. Yes 2. No");
+        int orb = K();
+
+        if (orb == 1) {
+            System.out.println("Lucky for you, the orb was a power up so you gain some additional EXP.");
+        }
+        if (orb == 2) {
+            System.out.println("You keep walking to the altar. The orb dissipates when you pass by.");
+        }
+
+        System.out.println("Now you reached the Altar! What do you do first?");
+        System.out.println("1. Go to the village and help the villagers get food");
+        System.out.println("2. Go to a Ixtal guild hall and get teammates to help you fight the monster!");
+        int help = K();
+        if (help == 1) {
+            place = "village";
+        }
+        if (help == 2) {
+            place = "battle";
+        }
+
+    }
+
+    public static void Battle() {
+        System.out.println(
+                "You need to collect some teammates to help you fight the Kraken. Luckily your guild, Ixtal, has stations throughout the continent! You head to the nearest Ixtal guild hall.");
+         System.out.println("");
+        System.out.println("1. Flower Hall, 2. Skull Hall");
+        int guild = K();
+        if(guild == 1){
+            System.out.println("Welcome to the Flower Hall!");
+        }
+        if(guild == 2){
+            System.out.println("It's closed. You are sent to the Flower hall.");
+        }
+        
+        System.out.println("Hey! Who goes there? a guild member shouts to you.");
+         System.out.println("");
+        System.out.println("You reply, I'm an adventurer! I need teammates to fight with me. Who here is willing?");
+        System.out
+                .println("The guild member presents you 3 canditates from who you choose 1 of them. Who do you take?");
+        System.out.println(
+                "1. Person1: A warrior who bears a broadsword and is very useful on the front lines. He has a slow recovery rate but does a lot of damage. Can't do too many attacks in a row.");
+         System.out.println("");
+        System.out.println(
+                "2. Person2: A black magician whose specialty is fire magic. Black magic is not common so he is a rarity. Quite a novice so makes mistakes but his attacks are powerful.");
+         System.out.println("");
+        System.out.println(
+                "3. Person3: A girl who recently joined the guild, but she is a top class healer but can't give attacks that deal a lot of damage.");
+        int person = K();
+
+        if (person == 1) {
+            System.out.println("A warrior? Nice!");
+        }
+        if (person == 2) {
+            System.out.println("A magician? Nice!");
+        }
+        if (person == 3) {
+            System.out.println("A healer? Nice!");
+        }
+
+        System.out.println("Name your teammate!");
+        String name = Q();
+        System.out.println("You greet " + name + " and get acquainted.");
+        System.out.println("Now you are almost ready to head to battle. Pick your armor and weapons!");
+        System.out.println("(1) Bronze or (2) Iron armor?");
+        Q();
+        System.out.println("(1) Broadsword or (2) Soul Blade?");
+        Q();
+        System.out.println("Nice! Now off to battle!");
+        System.out
+                .println("You greet the Kraken. It is nice enough to let you pick the battlefield. Which do you pick?");
+        System.out.println("1. The Gloomy Swamp");
+        System.out.println("2. The Fiery Gallows");
+        System.out.println("3. The Ghost Forest");
+        int field = K();
+
+        if (field == 1) {
+            place = "swamp";
+        }
+        if (field == 2) {
+            place = "gallow";
+        }
+        if (field == 3) {
+            place = "forest";
+        }
+
+    }
+
+    public static void Swamp() {
+        System.out.println("You arrived at the Swamp! The Kraken is roaring to go.");
+        System.out.println("Who attacks first? You or your teammate?");
+        Q();
+        System.out.println("Great! The Kraken is at low health. How do you finish him off?");
+        System.out.println("Climb the vines and do a overhead attack or deal a attack below?");
+        Q();
+        System.out.println("Great! You defeated the kraken.");
+        System.out.println("Want to go back home? 1. Yes 2. No");
+        int ask = K();
+        if (ask == 1) {
+            place = "end";
+        }
+        if (ask == 2) {
+            place = "alternate";
+        }
+    }
+
+    public static void Gallow() {
+        System.out.println("You arrived at the Gallow! The Kraken is roaring to go.");
+        System.out.println("Who attacks first? You or your teammate?");
+        Q();
+        System.out.println("Great! The Kraken is at low health. How do you finish him off?");
+        System.out.println("Climb the rocks and do a overhead attack or deal a attack below?");
+        Q();
+        System.out.println("Great! You defeated the kraken.");
+        System.out.println("Want to go back home? 1. Yes 2. No");
+        int ask = K();
+        if (ask == 1) {
+            place = "end";
+        }
+        if (ask == 2) {
+            place = "alternate";
+        }
+    }
+
+    public static void Forest() {
+        System.out.println("You arrived at the Forest! The Kraken is roaring to go.");
+         System.out.println("");
+        System.out.println("Who attacks first? 1. You or your 2. teammate?");
+        K();
+        System.out.println("");
+        System.out.println("Great! The Kraken is at low health. How do you finish him off?");
+        System.out.println("1. Climb the trees and do a overhead attack or 2. deal a attack below?");
+         System.out.println("");
+        K();
+        System.out.println("Great! You defeated the kraken.");
+        System.out.println("Want to go back home? 1. Yes 2. No");
+        int ask = K();
+        if (ask == 1) {
+            place = "end";
+        }
+        if (ask == 2) {
+            place = "alternate";
+        }
+    }
+
+    public static void Alt() {
+        System.out.println(
+                "You went back to the village and made good friends with the villagers. You decided to settle there.");
+        System.out.println("Thanks for playing!");
+        place = "end";
+    }
+
+    public static void End() {
+        System.out.println("The guild leader is very proud. You eventually become the strongest in the guild.");
+        System.out.println("Thanks for playing!");
+         place = "end";
+    }
+
+    public static void Village() {
+        System.out.println("You are now at the village. You see villagers lying down on the ground. You are appalled.");
+        System.out.println("A child on the floor cries out to you. Do you help them? 1. Yes 2. No");
+        int child = K();
+        if (child == 1) {
+            System.out.println("You take them to the village doctor. You gain some EXP for your kindness.");
+        }
+        if (child == 2) {
+            System.out.println(
+                    "Karma bites back and you have your bags stolen from you. That bag contained your only food supply.");
+        }
+        System.out.println(
+                "Now to give food to the villagers you have to figure out where to get the food from. You have a couple options...");
+        System.out.println("1. Nearby farm, 2. Trade with another village");
+        int food = K();
+        if (food == 1) {
+            System.out.println(
+                    "You decide to get the crops yourself. You travel to the farm. For your hard work, you are awarded some EXP. You manage to gather enough food for the whole village.");
+        }
+        if (food == 2) {
+            System.out.println(
+                    "You travel to the nearby village. You try to negotiate with the neraby village but it turns out that they speak a totally different langauage than you! You can't understand them and thus negotiate incorrectly. You end up only getting enough food for half the village. The villagers have to ration.");
+        }
+        System.out.println(
+                "Now that the food fiasco is somewhat sorted out, you have to battle the Kraken! I wish you the best of luck...");
+        Battle();
+    }
+
+    public static String Q() {
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextLine();
+    }
+
+    public static int K() {
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextInt();
+    }
+
+}
